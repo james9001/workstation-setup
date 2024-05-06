@@ -15,9 +15,12 @@ sudo apt -y install \
     fortune-mod \
     lolcat \
     tmux \
-	starship \
 	iperf3 \
     virt-manager
+
+
+# be careful with this
+curl -sS https://starship.rs/install.sh | sh
 
 
 sudo gem install catsay
