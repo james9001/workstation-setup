@@ -41,8 +41,10 @@ sudo gem install catsay
 #Install pgadmin-4 from apt ppa
 
 
+#should use deb package of vscode
+
 flatpak install \
-    com.visualstudio.code \
+    #com.visualstudio.code \
     dev.k8slens.OpenLens \
     com.getpostman.Postman
 
