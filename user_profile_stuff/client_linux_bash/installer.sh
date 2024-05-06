@@ -27,7 +27,7 @@ sudo gem install catsay
 
 
 # Install docker engine from apt ppa
-
+# TODO
 
 
 # Install nvm and a node version
@@ -44,12 +44,11 @@ sudo gem install catsay
 #Install pgadmin-4 from apt ppa
 
 
-#should use deb package of vscode
+#use deb package of vscode
 
-flatpak install \
-    #com.visualstudio.code \
-    dev.k8slens.OpenLens \
-    com.getpostman.Postman
+#flatpak install \
+    #dev.k8slens.OpenLens \
+    #com.getpostman.Postman
 
 # Other stuff to automate:
 # chrome
