@@ -151,6 +151,10 @@ reposync () {
     done
 }
 
+pingg () {
+    ping 8.8.8.8 | while read pong; do echo "$(date): $pong"; done
+}
+
 
 if [[ $(tmux list-sessions | wc -l) -gt 10 ]]; then
     echo "More than 10 tmux sessions active. Clean the others up with \"cleantmux\""
