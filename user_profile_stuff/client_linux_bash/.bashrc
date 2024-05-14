@@ -141,6 +141,10 @@ reposync () {
             echo "repo: $dir"
             echo "pull from origin: $(git pull 2>&1)"
             echo "push to origin: $(git push origin 2>&1)"
+            #
+            #
+            #
+            #
             cd ..
             echo "---"
         fi
