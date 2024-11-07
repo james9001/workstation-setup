@@ -5,3 +5,4 @@
 	name = ${ENV_VAR_GIT_NAME}
 [core]
 	editor = nano
+	autocrlf = true
