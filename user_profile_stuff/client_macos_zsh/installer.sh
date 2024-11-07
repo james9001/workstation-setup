@@ -37,3 +37,6 @@ brew install \
 	dos2unix
 
 sudo gem install catsay
+
+nvm install lts/hydrogen
+nvm alias default lts/hydrogen
