@@ -1,6 +1,8 @@
 #!/bin/zsh
 
-brew tap homebrew/cask-fonts
+echo >> /Users/$(whoami)/.zprofile
+echo 'eval "$(/usr/local/bin/brew shellenv)"' >> /Users/$(whoami)/.zprofile
+eval "$(/usr/local/bin/brew shellenv)"
 
 brew install --casks \
 	firefox \
