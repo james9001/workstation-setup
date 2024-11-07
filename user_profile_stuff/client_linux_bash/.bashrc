@@ -163,7 +163,7 @@ fi
 
 
 
-if [[ "$TERM" =~ screen ]]; then
+if [[ "$TERM" =~ tmux ]]; then
     #echo $([ $[ $RANDOM % 6 ] = 0 ] && fortune || fortune ~/my_quotes) | catsay --cat contemplating | lolcat -a -d 1
     fortune ~/my_quotes | catsay --cat contemplating | lolcat -a -d 1
 fi
