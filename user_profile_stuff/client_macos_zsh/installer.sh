@@ -33,6 +33,7 @@ brew install \
 	neofetch \
 	ncdu \
 	iperf3 \
-	nvm
+	nvm \
+	dos2unix
 
 sudo gem install catsay
