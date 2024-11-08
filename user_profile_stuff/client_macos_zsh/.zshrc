@@ -49,8 +49,8 @@ if [[ $(tmux list-sessions | wc -l) -gt 10 ]]; then
 fi
 
 path+=('/Applications/mvn/apache-maven-3.6.3/bin')
-path+=('/Users/james9001/bin')
-path+=('/Users/james9001/go/bin')
+path+=('/Users/$(whoami)/bin')
+path+=('/Users/$(whoami)/go/bin')
 
 #use lowercase v to return the path to a jdk
 #use uppercase V to show the list of available jdks
