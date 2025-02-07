@@ -13,7 +13,6 @@ brew install --casks \
 	bitwarden \
 	iterm2 \
 	font-hack-nerd-font \
-	docker \
 	spotify \
 	postman \
 	utm \
@@ -22,7 +21,8 @@ brew install --casks \
 	cyberduck \
 	vlc \
 	geekbench \
-	rectangle
+	rectangle \
+	orbstack
 
 brew install \
 	starship \
