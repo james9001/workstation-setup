@@ -48,9 +48,12 @@ if [[ $(tmux list-sessions | wc -l) -gt 10 ]]; then
     echo "More than 10 tmux sessions active. Clean the others up with \"cleantmux\""
 fi
 
-path+=('/Applications/mvn/apache-maven-3.6.3/bin')
-path+=('/Users/$(whoami)/bin')
-path+=('/Users/$(whoami)/go/bin')
+#Set defaults for PATH; might be overriden later e.g. by Brew or whatever
+#(and boy does Brew do some weird stuff PATH-wise)
+path+=("/Applications/mvn/apache-maven-3.6.3/bin")
+path+=("/Users/$(whoami)/bin")
+path+=("/Users/$(whoami)/go/bin")
+path+=("/Users/$(whoami)/.nvm/versions/node/v18.19.0/bin")
 
 #use lowercase v to return the path to a jdk
 #use uppercase V to show the list of available jdks
