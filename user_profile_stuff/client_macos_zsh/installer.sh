@@ -1,9 +1,5 @@
 #!/bin/zsh
 
-echo >> /Users/$(whoami)/.zprofile
-echo 'eval "$(/usr/local/bin/brew shellenv)"' >> /Users/$(whoami)/.zprofile
-eval "$(/usr/local/bin/brew shellenv)"
-
 brew install --casks \
 	firefox \
 	google-chrome \
@@ -38,5 +34,21 @@ brew install \
 
 sudo gem install catsay
 
-nvm install lts/hydrogen
-nvm alias default lts/hydrogen
+xattr -d com.apple.quarantine /Applications/LibreWolf.app
+
+# set up nvm
+# apple silicon
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+# intel
+#export NVM_DIR="$HOME/.nvm"
+#  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+mkdir ~/.nvm
+nvm install 18
+nvm alias default 18
+
+# time to set up rust
+rustup-init -y
+
+cd ~
+strfile -c % my_quotes my_quotes.dat
