@@ -2,23 +2,26 @@
 
 brew install --casks \
 	firefox \
-	google-chrome \
-	brave-browser \
 	visual-studio-code \
-	openlens \
-	bitwarden \
+	librewolf \
 	iterm2 \
 	font-hack-nerd-font \
-	spotify \
-	postman \
-	utm \
+	rectangle \
+	temurin \
 	pgadmin4 \
+	google-chrome \
+	brave-browser \
+	bitwarden \
+	freelens \
 	karabiner-elements \
 	cyberduck \
+	postman \
+	openvpn-connect \
 	vlc \
+	utm \
 	geekbench \
-	rectangle \
-	orbstack
+	orbstack \
+	cursor
 
 brew install \
 	starship \
@@ -29,8 +32,12 @@ brew install \
 	neofetch \
 	ncdu \
 	iperf3 \
+	pre-commit \
+	cmatrix \
 	nvm \
-	dos2unix
+	dos2unix \
+	rustup \
+	plz-cli
 
 sudo gem install catsay
 
