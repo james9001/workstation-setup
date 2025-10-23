@@ -38,7 +38,8 @@ brew install \
 	dos2unix \
 	rustup \
 	plz-cli \
-	go
+	go \
+	ansible
 
 sudo gem install catsay
 
