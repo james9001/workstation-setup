@@ -37,7 +37,8 @@ brew install \
 	nvm \
 	dos2unix \
 	rustup \
-	plz-cli
+	plz-cli \
+	go
 
 sudo gem install catsay
 
