@@ -39,7 +39,9 @@ brew install \
 	rustup \
 	plz-cli \
 	go \
-	ansible
+	ansible \
+	sshpass \
+	opentofu
 
 sudo gem install catsay
 

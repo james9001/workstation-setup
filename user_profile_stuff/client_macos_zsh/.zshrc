@@ -11,6 +11,7 @@ alias als="docker container ls -a"
 alias abuild="docker compose build"
 alias powah="sudo powermetrics --samplers smc"
 alias matrix="cmatrix"
+alias terraform="tofu"
 
 cleantmux () {
     THIS_SESSION_ID=`tmux display-message -p '#S'`
