@@ -24,6 +24,7 @@ brew install --casks \
 	cursor
 
 brew install \
+	git \
 	starship \
 	tmux \
 	fortune \
