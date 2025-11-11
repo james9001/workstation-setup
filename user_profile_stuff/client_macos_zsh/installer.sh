@@ -21,7 +21,8 @@ brew install --casks \
 	utm \
 	geekbench \
 	orbstack \
-	cursor
+	cursor \
+	dbeaver-community
 
 brew install \
 	git \
