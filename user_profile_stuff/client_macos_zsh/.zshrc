@@ -54,7 +54,9 @@ fi
 path+=("/Applications/mvn/apache-maven-3.6.3/bin")
 path+=("/Users/$(whoami)/bin")
 path+=("/Users/$(whoami)/go/bin")
-path+=("/Users/$(whoami)/.nvm/versions/node/v18.19.0/bin")
+# adding node/v24.11.1/bin to PATH allows use of mlint without selecting node version first
+# (also means the default node and npm on PATH is v24, of course..)
+path+=("/Users/$(whoami)/.nvm/versions/node/v24.11.1/bin")
 
 #use lowercase v to return the path to a jdk
 #use uppercase V to show the list of available jdks
