@@ -43,7 +43,8 @@ brew install \
 	go \
 	ansible \
 	sshpass \
-	opentofu
+	opentofu \
+	codex
 
 sudo gem install catsay
 
