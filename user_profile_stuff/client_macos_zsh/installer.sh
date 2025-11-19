@@ -22,7 +22,8 @@ brew install --casks \
 	geekbench \
 	orbstack \
 	cursor \
-	dbeaver-community
+	dbeaver-community \
+	db-browser-for-sqlite
 
 brew install \
 	git \
