@@ -50,19 +50,22 @@ sudo gem install catsay
 
 xattr -d com.apple.quarantine /Applications/LibreWolf.app
 
-# set up nvm
-# apple silicon
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-# intel
-#export NVM_DIR="$HOME/.nvm"
-#  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-mkdir ~/.nvm
-nvm install 18
-nvm alias default 18
+# set up nvm + default node installation
+if [ "$(uname -m)" = "x86_64" ]; then
+	export NVM_DIR="$HOME/.nvm"
+		[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+fi
+if [ "$(uname -m)" = "arm64" ]; then
+	export NVM_DIR="$HOME/.nvm"
+		[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+fi
+mkdir -p /Users/$(whoami)/.nvm
+nvm install 24
+nvm alias default 24
 
-# time to set up rust
+# set up rust
 rustup-init -y
 
-cd ~
+# convert quotes to .dat
+cd /Users/$(whoami)
 strfile -c % my_quotes my_quotes.dat
