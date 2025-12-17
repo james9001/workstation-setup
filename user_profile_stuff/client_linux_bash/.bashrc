@@ -116,7 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export OPENAI_API_KEY="${ENV_VAR_OPENAI_API_KEY}"
 export SNYK_TOKEN="${ENV_VAR_SNYK_TOKEN}"
 
 export PATH="/home/james/.local/bin:/home/james/bin/apache-maven-3.8.7/bin:$PATH"

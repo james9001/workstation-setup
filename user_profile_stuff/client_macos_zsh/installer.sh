@@ -40,7 +40,6 @@ brew install \
 	nvm \
 	dos2unix \
 	rustup \
-	plz-cli \
 	go \
 	ansible \
 	sshpass \
