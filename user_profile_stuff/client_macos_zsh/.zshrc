@@ -55,6 +55,7 @@ path+=("/Users/$(whoami)/bin")
 path+=("/Users/$(whoami)/go/bin")
 # adding node/v24.11.1/bin to PATH allows use of mlint without selecting node version first
 # (also means the default node and npm on PATH is v24, of course..)
+# TODO: this is kinda pointless since you can/should set a default version in `nvm` itself.
 path+=("/Users/$(whoami)/.nvm/versions/node/v24.11.1/bin")
 
 #use lowercase v to return the path to a jdk
@@ -86,3 +87,7 @@ eval "$(starship init zsh)"
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$ITERM_PROFILE" != "" ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
+
+
+
+#### MACHINE SPECIFIC STUFF BELOW THIS POINT ####
