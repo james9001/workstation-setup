@@ -116,12 +116,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export SNYK_TOKEN="${ENV_VAR_SNYK_TOKEN}"
+setup_dev_tools () {
+    export PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/.local/bin:$HOME/bin/apache-maven-3.9.9/bin:$PATH"
+    export PATH="$PATH:/usr/local/go/bin"
+    export PATH="$PATH:$HOME/go/bin"
 
-export PATH="/home/james/.local/bin:/home/james/bin/apache-maven-3.8.7/bin:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:/home/james/go/bin"
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+    . "$HOME/.cargo/env"
+}
 
 cleantmux () {
     THIS_SESSION_ID=`tmux display-message -p '#S'`
@@ -132,6 +138,33 @@ cleantmux () {
     done
 }
 
+pingg () {
+    ping 8.8.8.8 | while read pong; do echo "$(date): $pong"; done
+}
+
+start_tmux () {
+    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$GNOME_TERMINAL_SCREEN" != "" ]] && [ -z "$TMUX" ]; then
+        exec tmux
+    fi
+}
+
+if [[ $(tmux list-sessions | wc -l) -gt 10 ]]; then
+    echo "More than 10 tmux sessions active. Clean the others up with \"cleantmux\""
+fi
+
+if [[ "$TMUX" != "" ]]; then
+    fortune ~/my_quotes | catsay --cat contemplating | lolcat -a -d 1
+fi
+
+# this is for catsay, fortune, etc
+export PATH="/usr/games:$HOME/bin:$PATH"
+
+eval "$(starship init bash)"
+
+
+
+#### MACHINE SPECIFIC STUFF BELOW THIS POINT ####
+
 reposync () {
     cd ~/repositories
     for dir in ~/repositories/*; do
@@ -140,57 +173,12 @@ reposync () {
             echo "repo: $dir"
             echo "pull from origin: $(git pull 2>&1)"
             echo "push to origin: $(git push origin 2>&1)"
-            #
-            #
-            #
-            #
             cd ..
             echo "---"
         fi
     done
 }
 
-pingg () {
-    ping 8.8.8.8 | while read pong; do echo "$(date): $pong"; done
-}
+setup_dev_tools
 
-
-if [[ $(tmux list-sessions | wc -l) -gt 10 ]]; then
-    echo "More than 10 tmux sessions active. Clean the others up with \"cleantmux\""
-fi
-
-
-
-
-if [[ "$TERM" =~ tmux ]]; then
-    #echo $([ $[ $RANDOM % 6 ] = 0 ] && fortune || fortune ~/my_quotes) | catsay --cat contemplating | lolcat -a -d 1
-    fortune ~/my_quotes | catsay --cat contemplating | lolcat -a -d 1
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(starship init bash)"
-. "$HOME/.cargo/env"
-
-# Don't really want to use conda unless I have to
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/james/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/james/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/james/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/james/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
-# conda deactivate
-
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$GNOME_TERMINAL_SCREEN" != "" ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
+start_tmux
