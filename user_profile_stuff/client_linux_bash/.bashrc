@@ -152,12 +152,11 @@ if [[ $(tmux list-sessions | wc -l) -gt 10 ]]; then
     echo "More than 10 tmux sessions active. Clean the others up with \"cleantmux\""
 fi
 
+# this is for catsay, fortune, etc
+export PATH="/usr/games:$HOME/bin:$PATH"
 if [[ "$TMUX" != "" ]]; then
     fortune ~/my_quotes | catsay --cat contemplating | lolcat -a -d 1
 fi
-
-# this is for catsay, fortune, etc
-export PATH="/usr/games:$HOME/bin:$PATH"
 
 eval "$(starship init bash)"
 
